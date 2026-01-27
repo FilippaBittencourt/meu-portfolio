@@ -31,10 +31,10 @@ export default function Home() {
           Criando experiências digitais com código e design.
         </p>
         <div className="flex gap-4 mt-4">
-          <a href="#projetos" className="px-6 py-3 bg-zinc-50 text-black rounded-full font-medium hover:bg-zinc-200 transition-colors">
+          <a href="#projetos" className="px-6 py-3 bg-zinc-50 text-black rounded-full font-medium hover:bg-zinc-200 transition-all duration-300">
             Ver Projetos
           </a>
-          <a href="https://github.com/FilippaBittencourt" target="_blank" className="px-6 py-3 border border-zinc-700 rounded-full font-medium hover:bg-zinc-900 transition-colors">
+          <a href="https://github.com/FilippaBittencourt" target="_blank" className="px-6 py-3 border border-zinc-700 rounded-full font-medium hover:bg-zinc-900 transition-all duration-300">
             GitHub
           </a>
         </div>
@@ -48,8 +48,9 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projetos.map((projeto, index) => (
-            <div key={index} className="p-6 border border-zinc-800 rounded-xl hover:border-zinc-500 transition-colors group cursor-pointer">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+            /* Adicionado: transition-all, duration-300 e o efeito de subir (hover:-translate-y-1) */
+            <div key={index} className="p-6 border border-zinc-800 rounded-xl hover:border-zinc-500 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-zinc-400 transition-colors duration-300">
                 {projeto.titulo}
               </h3>
               <p className="text-zinc-400 text-sm mb-4">
@@ -66,46 +67,48 @@ export default function Home() {
           ))}
         </div>
       </section>
-      {/* Seção Sobre Mim */}
-<section id="sobre" className="w-full max-w-4xl mt-24 mb-20">
-  <h2 className="text-2xl font-semibold mb-8 border-b border-zinc-800 pb-2">
-    Sobre
-  </h2>
-  
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-    <div className="text-zinc-400 leading-relaxed space-y-4">
-      <p>
-        Sou uma desenvolvedora apaixonada por transformar ideias em realidade através de interfaces limpas e funcionais. 
-      </p>
-      <p>
-        Atualmente, estou focada em aprimorar meus conhecimentos em <strong>Next.js</strong> e <strong>Tailwind CSS</strong>, buscando sempre escrever um código legível e eficiente.
-      </p>
-    </div>
 
-    <div>
-      <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-4">
-        Tecnologias
-      </h3>
-      <div className="flex flex-wrap gap-3">
-        {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Git"].map((skill) => (
-          <span key={skill} className="px-3 py-1 border border-zinc-800 rounded-md text-sm text-zinc-300">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-{/* Rodapé / Footer */}
+      {/* Seção Sobre Mim */}
+      <section id="sobre" className="w-full max-w-4xl mt-24 mb-20">
+        <h2 className="text-2xl font-semibold mb-8 border-b border-zinc-800 pb-2">
+          Sobre
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="text-zinc-400 leading-relaxed space-y-4">
+            <p>
+              Sou uma desenvolvedora apaixonada por transformar ideias em realidade através de interfaces limpas e funcionais. 
+            </p>
+            <p>
+              Atualmente, estou focada em aprimorar meus conhecimentos em <strong>Next.js</strong> e <strong>Tailwind CSS</strong>, buscando sempre escrever um código legível e eficiente.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest mb-4">
+              Tecnologias
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Git"].map((skill) => (
+                <span key={skill} className="px-3 py-1 border border-zinc-800 rounded-md text-sm text-zinc-300 hover:border-zinc-500 transition-colors duration-300">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Rodapé / Footer */}
       <footer className="w-full max-w-4xl border-t border-zinc-800 pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-zinc-500 text-sm">
           © 2026 Filippa. Construído com Next.js.
         </p>
         
         <div className="flex gap-6 text-sm font-medium text-zinc-400">
-          <a href="mailto:seuemail@exemplo.com" className="hover:text-zinc-50 transition-colors">E-mail</a>
-          <a href="https://linkedin.com/in/seuusuario" target="_blank" className="hover:text-zinc-50 transition-colors">LinkedIn</a>
-          <a href="https://github.com/FilippaBittencourt" target="_blank" className="hover:text-zinc-50 transition-colors">GitHub</a>
+          <a href="mailto:seuemail@exemplo.com" className="hover:text-zinc-50 transition-colors duration-300">E-mail</a>
+          <a href="https://linkedin.com/in/seuusuario" target="_blank" className="hover:text-zinc-50 transition-colors duration-300">LinkedIn</a>
+          <a href="https://github.com/FilippaBittencourt" target="_blank" className="hover:text-zinc-50 transition-colors duration-300">GitHub</a>
         </div>
       </footer>
     </main>
