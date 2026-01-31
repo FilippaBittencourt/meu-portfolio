@@ -1,0 +1,28 @@
+export default function Navbar() {
+  const links = [
+    { nome: "Início", href: "#" },
+    { nome: "Projetos", href: "#projetos" },
+    { nome: "Sobre", href: "#sobre" },
+    { nome: "Contato", href: "#footer" }, // adicionei um id no footer para isso
+  ];
+
+  return (
+    <nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-black/50 backdrop-blur-md">
+      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+        <span className="text-lg font-bold tracking-tighter">FB</span>
+        
+        <div className="flex gap-8">
+          {links.map((link) => (
+            <a
+              key={link.nome}
+              href={link.href}
+              className="text-sm text-zinc-400 transition-colors hover:text-zinc-50"
+            >
+              {link.nome}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
