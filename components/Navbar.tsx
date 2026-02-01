@@ -1,8 +1,9 @@
 export default function Navbar() {
   const links = [
     { nome: "Início", href: "#" },
-    { nome: "Projetos", href: "#projetos" },
     { nome: "Sobre", href: "#sobre" },
+    { nome: "Experiência", href: "#experiencia" },
+    { nome: "Projetos", href: "#projetos" },
     { nome: "Contato", href: "#footer" },
   ];
 

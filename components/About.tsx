@@ -20,10 +20,17 @@ const SkillIcon = ({ path, color, name }: SkillIconProps) => (
 );
 
 export default function About() {
+  const skills = [
+    { icon: siReact, color: "#61DAFB", name: "React" },
+    { icon: siJavascript, color: "#F7DF1E", name: "JavaScript" },
+    { icon: siTypescript, color: "#3178C6", name: "TypeScript" },
+    { icon: siTailwindcss, color: "#06B6D4", name: "Tailwind CSS" },
+  ];
+
   return (
-    <section id="about" className="w-full max-w-4xl mx-auto py-20 px-4">
+    <section id="sobre" className="w-full">
       <span className="text-purple-500 font-mono text-base mb-1 block">
-        // SOBRE MIM
+        // SOBRE
       </span>  
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -45,11 +52,11 @@ export default function About() {
         <div className="p-6 bg-[#18181b] border border-zinc-800 rounded-3xl hover:border-purple-500/40 transition-all duration-500 w-full max-w-[400px] md:justify-self-end shadow-2xl">
           <div className="flex items-center gap-6">
             
-            <div className="w-24 h-24 rounded-full bg-white overflow-hidden flex-shrink-0 border-4 border-zinc-800 shadow-inner">
+            <div className="w-32 h-32 rounded-full bg-zinc-800 overflow-hidden flex-shrink-0 border-4 border-zinc-800 shadow-inner relative">
                <img 
-                 src="/caminho-da-sua-foto-pixel.png" 
-                 alt="Lippa Bittencourt" 
-                 className="w-full h-full object-cover scale-110"
+                 src="/avatar.png"
+                 alt="Avatar Lippa Estilo Stardew Vallley" 
+                 className="w-full h-full object-cover"
                />
             </div>
 
@@ -59,16 +66,21 @@ export default function About() {
               </h3>
               
               <div className="space-y-0.5 font-mono text-sm text-zinc-100">
-                <p><span className="text-purple-500 font-medium">Class:</span> Web Developer</p>
-                <p><span className="text-purple-500 font-medium">Level:</span> 22</p>
+                <p><span className="text-purple-500 font-semibold not-italic">Class:</span> Web Developer</p>
+                <p><span className="text-purple-500 font-semibold not-italic">Level:</span> 22</p>
                 
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="text-purple-500 font-medium">Skills:</span>
+                <div className="flex flex-col gap-2 mt-2">
+                  <span className="text-purple-500 font-semibold not-italic">Skills:</span>
                   <div className="flex gap-2 items-center">
-                    <SkillIcon path={siReact.path} color="#61DAFB" name="React" />
-                    <SkillIcon path={siJavascript.path} color="#F7DF1E" name="JavaScript" />
-                    <SkillIcon path={siTypescript.path} color="#3178C6" name="TypeScript" />
-                    <SkillIcon path={siTailwindcss.path} color="#06B6D4" name="Tailwind CSS" />
+                    {skills.map((skill) => (
+                      <div 
+                        key={skill.name} 
+                        className="p-2 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-purple-500/50 transition-colors"
+                        title={skill.name}
+                      >
+                        <SkillIcon path={skill.icon.path} color={skill.color} name={skill.name} />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
