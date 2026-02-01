@@ -1,18 +1,123 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Github, Linkedin, Mail, Download, MessageSquare } from "lucide-react";
+import Image from "next/image";
+
 export default function Hero() {
+  const palavras = [
+    "Web Designer", 
+    "Desenvolvedora Frontend", 
+    "Analista de Dados", 
+    "Apaixonada por Games"
+  ];
+  
+  // Estados para controlar a animação de digitação
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [estaApagando, setEstaApagando] = useState(false);
+  const [velocidade, setVelocidade] = useState(150);
+
+  useEffect(() => {
+    if (subIndex === palavras[index].length + 1 && !estaApagando) {
+      setVelocidade(2000); // Pausa quando termina de escrever
+      setEstaApagando(true);
+      return;
+    }
+
+    if (subIndex === 0 && estaApagando) {
+      setEstaApagando(false);
+      setIndex((prev) => (prev + 1) % palavras.length);
+      setVelocidade(500);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (estaApagando ? -1 : 1));
+      setVelocidade(estaApagando ? 30 : 80);
+    }, velocidade);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, estaApagando, index, velocidade, palavras]);
+
   return (
-    <section className="flex flex-col items-center gap-6 text-center mb-20">
-      <h1 className="text-5xl font-bold tracking-tight">Filippa</h1>
-      <p className="max-w-[600px] text-lg text-zinc-400">
-        Criando experiências digitais com código e design.
+    <section className="relative flex flex-col items-start gap-4 text-left mb-20 w-full pt-10">
+      
+      <span className="text-zinc-400 text-lg md:text-xl font-bold tracking-tight">
+        Olá, Mundo! Eu sou a
+      </span>
+      
+      <h1 className="text-6xl md:text-7xl font-bold tracking-tighter text-purple-500 -mt-2">
+        Filippa Bittencourt
+      </h1>
+
+      <p className="max-w-[600px] text-lg md:text-xl text-zinc-400 mt-2 font-bold leading-relaxed h-8">
+        E sou <span className="text-purple-500">
+          {palavras[index].substring(0, subIndex)}
+        </span>
+        <span className="animate-pulse ml-1">|</span>
       </p>
-      <div className="flex gap-4 mt-4">
-        <a href="#projetos" className="px-6 py-3 bg-zinc-50 text-black rounded-full font-medium hover:bg-zinc-200 transition-all duration-300">
-          Ver Projetos
+
+      <p className="max-w-[550px] text-zinc-500 text-base md:text-lg leading-relaxed mt-4">
+        Crio interfaces modernas e responsivas, unindo código, design e inteligência de negócio. 
+        Gosto de transformar problemas em soluções simples, bonitas e funcionais. 
+        Nas horas vagas, me aventuro no mundo dos jogos.
+      </p>
+
+      <div className="flex flex-wrap gap-4 mt-8">
+        <a 
+          href="/curriculo.pdf" 
+          download 
+          className="group flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] active:scale-95"
+        >
+          <Download size={20} className="group-hover:animate-bounce" />
+          Baixar CV
         </a>
-        <a href="https://github.com/FilippaBittencourt" target="_blank" className="px-6 py-3 border border-zinc-700 rounded-full font-medium hover:bg-zinc-900 transition-all duration-300">
-          GitHub
+
+        <a 
+          href="#contact" 
+          className="flex items-center gap-2 bg-transparent border-2 border-zinc-800 hover:border-purple-500 text-zinc-300 hover:text-purple-400 px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+        >
+          <MessageSquare size={20} />
+          Me Contate
         </a>
       </div>
+
+      <div className="flex gap-6 mt-10">
+        <a 
+          href="https://github.com/FilippaBittencourt" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-zinc-500 hover:text-purple-500 transition-all hover:-translate-y-1"
+        >
+          <Github size={28} />
+        </a>
+        <a 
+          href="https://linkedin.com/in/filippa-bittencourt" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-zinc-500 hover:text-purple-500 transition-all hover:-translate-y-1"
+        >
+          <Linkedin size={28} />
+        </a>
+        <a 
+          href="mailto:btt.lippa@gmail.com" 
+          className="text-zinc-500 hover:text-purple-500 transition-all hover:-translate-y-1"
+        >
+          <Mail size={28} />
+        </a>
+      </div>
+
+      <div className="hidden md:block absolute right-0 top-10 w-48 h-48 lg:w-64 lg:h-64 overflow-hidden rounded-full border-4 border-zinc-900 shadow-2xl z-0">
+        <Image 
+          src="/perfil.jpeg" 
+          alt="Foto de Filippa Bittencourt" 
+          fill 
+          className="object-cover scale-110 hover:scale-125 transition-transform duration-700" 
+          priority 
+        />
+      </div>
+
     </section>
   );
 }

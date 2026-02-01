@@ -3,13 +3,12 @@ export default function Navbar() {
     { nome: "Início", href: "#" },
     { nome: "Projetos", href: "#projetos" },
     { nome: "Sobre", href: "#sobre" },
-    { nome: "Contato", href: "#footer" }, // adicionei um id no footer para isso
+    { nome: "Contato", href: "#footer" },
   ];
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-zinc-800 bg-black/50 backdrop-blur-md">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-bold tracking-tighter">FB</span>
+      <div className="mx-auto flex max-w-4xl items-center justify-center px-6 py-4">
         
         <div className="flex gap-8">
           {links.map((link) => (
@@ -22,6 +21,7 @@ export default function Navbar() {
             </a>
           ))}
         </div>
+
       </div>
     </nav>
   );
