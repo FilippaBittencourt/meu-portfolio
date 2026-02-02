@@ -1,7 +1,7 @@
 "use client";
 
 import { Mail, X } from "lucide-react";
-import { sendEmail } from "@/app/actions"; // Verifique se o caminho está correto
+import { sendEmail } from "@/app/actions";
 
 interface ContactModalProps {
   onClose: () => void;
@@ -22,7 +22,6 @@ export default function ContactModal({ onClose }: ContactModalProps) {
           Mande uma mensagem <Mail className="text-purple-500" size={24} />
         </h2>
         
-        {/* CORREÇÃO DO ERRO TS(2322) AQUI 👇 */}
         <form 
           action={async (formData: FormData) => {
             await sendEmail(formData);

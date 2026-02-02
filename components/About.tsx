@@ -1,5 +1,5 @@
 import { User2 } from "lucide-react";
-import { siReact, siJavascript, siTypescript, siTailwindcss } from "simple-icons";
+import { siReact, siJavascript, siTypescript, siTailwindcss, siPython } from "simple-icons";
 
 interface SkillIconProps {
   path: string;
@@ -25,6 +25,7 @@ export default function About() {
     { icon: siJavascript, color: "#F7DF1E", name: "JavaScript" },
     { icon: siTypescript, color: "#3178C6", name: "TypeScript" },
     { icon: siTailwindcss, color: "#06B6D4", name: "Tailwind CSS" },
+    { icon: siPython, color: "#3776AB", name: "Python" },
   ];
 
   return (
@@ -39,12 +40,13 @@ export default function About() {
           <h2 className="text-3xl font-bold text-zinc-100 tracking-tight">Me Conheça</h2>
           <div className="space-y-4 text-zinc-400 leading-relaxed text-sm">
             <p>
-              Olá! Sou a Filippa, desenvolvedora focada em criar interfaces que 
-              equilibram estética e performance. 
+              Oi! Me chamo Filippa, sou desenvolvedora web apaixonada por tecnologia e pelo mundo dos games.
+              Desde os títulos clássicos como Super Mario Bros. até os mais modernos como Stardew Valley,
+              os jogos sempre foram uma grande fonte de inspiração para mim. Atualmente, curso Análise e Desenvolvimento de Sistemas
+              no IFSP São Carlos e gosto de transformar ideias em interfaces criativas, funcionais e bem pensadas.
             </p>
             <p>
-              Minha jornada no desenvolvimento é guiada pela curiosidade de entender 
-              como as coisas funcionam por baixo do capô.
+              Minha jornada no desenvolvimento é guiada pela curiosidade e vontade de melhorar cada vez mais, assim como nos games!
             </p>
           </div>
         </div>
@@ -66,12 +68,12 @@ export default function About() {
               </h3>
               
               <div className="space-y-0.5 font-mono text-sm text-zinc-100">
-                <p><span className="text-purple-500 font-semibold not-italic">Class:</span> Web Developer</p>
-                <p><span className="text-purple-500 font-semibold not-italic">Level:</span> 22</p>
+                <p><span className="text-purple-500 font-semibold not-italic">Classe:</span> Web Developer</p>
+                <p><span className="text-purple-500 font-semibold not-italic">Nível:</span> 22</p>
                 
-                <div className="flex flex-col gap-2 mt-2">
-                  <span className="text-purple-500 font-semibold not-italic">Skills:</span>
-                  <div className="flex gap-2 items-center">
+                <div className="flex flex-col">
+                  <span className="text-purple-500 font-semibold not-italic">Habilidades:</span>
+                  <div className="flex gap-2 items-center mt-1">
                     {skills.map((skill) => (
                       <div 
                         key={skill.name} 

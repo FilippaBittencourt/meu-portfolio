@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Download, MessageSquare } from "lucide-react";
 import Image from "next/image";
-import ContactModal from "./ContactModal"; // 👈 Certifique-se que o caminho está correto
+import ContactModal from "./ContactModal"; //
 
 export default function Hero() {
   const palavras = [
@@ -107,7 +107,6 @@ export default function Hero() {
         />
       </div>
 
-      {/* 🚀 O Modal agora é um componente separado e limpo */}
       {isModalOpen && (
         <ContactModal onClose={() => setIsModalOpen(false)} />
       )}
