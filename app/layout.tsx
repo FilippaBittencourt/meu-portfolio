@@ -21,8 +21,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="dark" 
+          enableSystem={false} 
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>
