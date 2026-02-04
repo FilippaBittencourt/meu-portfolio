@@ -1,3 +1,5 @@
+"use client";
+
 import { CheckCircle2 } from "lucide-react";
 
 export default function Experiencia() {
@@ -31,13 +33,22 @@ export default function Experiencia() {
         // EXPERIÊNCIA
       </span>
 
-      <h2 className="text-3xl font-bold mb-12 tracking-tight text-zinc-100">
+      <h2 className="text-3xl font-bold mb-12 tracking-tight text-zinc-900 dark:text-zinc-100">
         Quest Log
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {experiencia.map((exp, index) => (
-          <div key={index} className="p-5 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-purple-500/50 transition-all duration-300 group relative overflow-hidden">
+          <div 
+            key={index} 
+            className="p-5 rounded-2xl transition-all duration-300 group relative overflow-hidden border
+
+            shadow-2xl
+
+            bg-zinc-100 border-zinc-200 hover:border-purple-600/50
+
+            dark:bg-zinc-900/50 dark:border-zinc-800 dark:hover:border-purple-500/50"
+          >
             
             <CheckCircle2 
               className="text-green-500 absolute top-6 right-6 opacity-80 group-hover:opacity-100 transition-opacity" 
@@ -45,25 +56,25 @@ export default function Experiencia() {
             />
 
             <div className="flex flex-col mb-4">
-              <h3 className="text-lg font-bold text-purple-400 pr-8">
+              <h3 className="text-lg font-bold text-purple-600 dark:text-purple-400 pr-8">
                 {exp.titulo}
               </h3>
-              <span className="text-zinc-500 text-sm font-medium">
+              <span className="text-zinc-500 dark:text-zinc-500 text-sm font-medium">
                 {exp.duracao}
               </span>
             </div>
 
             <div className="space-y-3">
-              <p className="text-zinc-300 font-medium leading-relaxed text-sm">
+              <p className="text-zinc-600 dark:text-zinc-300 font-sm leading-relaxed text-sm">
                 {exp.descricao}
               </p>
               
               <div className="space-y-1">
-                <p className="text-zinc-400 text-sm italic">
-                  <span className="text-purple-500 font-semibold not-italic">Objetivo:</span> {exp.objetivo}
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm italic">
+                  <span className="text-purple-600 dark:text-purple-500 font-semibold not-italic">Objetivo:</span> {exp.objetivo}
                 </p>
-                <p className="text-zinc-400 text-sm italic">
-                  <span className="text-purple-500 font-semibold not-italic">Recompensa:</span> {exp.recompensa}
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm italic">
+                  <span className="text-purple-600 dark:text-purple-500 font-semibold not-italic">Recompensa:</span> {exp.recompensa}
                 </p>
               </div>
             </div>

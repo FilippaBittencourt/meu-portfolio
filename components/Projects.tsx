@@ -1,20 +1,24 @@
+"use client";
+
 import { Github, ExternalLink, Code2 } from "lucide-react";
 
 export default function Projects() {
   const meusProjetos = [
     {
-      titulo: "Projeto 1",
-      descricao: "Este portfólio que você está navegando, focado em imersão de RPG e clean code.",
-      tecnologias: ["Next.js", "Tailwind CSS", "TypeScript"],
-      github: "https://github.com/FilippaBittencourt/meu-portfolio",
-      deploy: "https://filippa.dev",
+      titulo: "Playbook Polar",
+      imagem: "/project-1.png",
+      descricao: "Hub estratégico desenvolvido para centralizar informações e otimizar processos do time comercial da Polar.",
+      tecnologias: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "postgreSQL", "API REST"],
+      github: "https://github.com/barbaracatucci/Playbook_Polar_2025",
+      deploy: "#",
     },
     {
-      titulo: "Projeto 2",
-      descricao: "Uma breve descrição do impacto e do problema que esse projeto resolve no mundo real.",
-      tecnologias: ["React", "Node.js", "PostgreSQL"],
-      github: "https://github.com/FilippaBittencourt/projeto-2",
-      deploy: "#",
+      titulo: "Cine Limon",
+      imagem: "/project-2.png", 
+      descricao: "Aplicação de gerenciamento de filmes que permite o controle total sobre o catálogo.",
+      tecnologias: ["TypeScript", "JavaScript"],
+      github: "https://github.com/RamonPeixe/cine-limon/commits/main/",
+      deploy: "https://cine-limon.vercel.app/",
     },
   ];
 
@@ -24,62 +28,82 @@ export default function Projects() {
         // PORTFÓLIO
       </span>      
 
-      <h2 className="text-3xl font-bold mb-12 tracking-tight text-zinc-100">
+      <h2 className="text-3xl font-bold mb-12 tracking-tight text-zinc-900 dark:text-zinc-100">
         Meus Projetos
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {meusProjetos.map((projeto, index) => (
           <div 
             key={index} 
-            className="group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between"
+            className="group rounded-2xl transition-all duration-500 flex flex-col border shadow-2xl overflow-hidden
+            /* MODO CLARO */
+            bg-zinc-100 border-zinc-200 hover:border-purple-600/50
+            /* MODO ESCURO */
+            dark:bg-zinc-900/50 dark:border-zinc-800 dark:hover:border-purple-500/50"
           >
-            <div>
-              <div className="flex justify-between items-start mb-4">
-                <div className="p-3 bg-zinc-800/50 rounded-lg text-purple-400 group-hover:text-purple-300 transition-colors">
-                  <Code2 size={24} />
-                </div>
-                <div className="flex gap-3">
-                  <a 
-                    href={projeto.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-zinc-500 hover:text-zinc-100 transition-colors"
-                    title="Ver código no GitHub"
-                  >
-                    <Github size={20} />
-                  </a>
-                  {projeto.deploy !== "#" && (
-                    <a 
-                      href={projeto.deploy} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-zinc-500 hover:text-zinc-100 transition-colors"
-                      title="Ver demonstração"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <h3 className="text-xl font-bold text-zinc-100 mb-2 group-hover:text-purple-400 transition-colors">
-                {projeto.titulo}
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                {projeto.descricao}
-              </p>
+            {/* CONTAINER DA IMAGEM COM EFEITO ZOOM */}
+            <div className="relative h-48 w-full overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+              <img 
+                src={projeto.imagem} 
+                alt={projeto.titulo}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              {projeto.tecnologias.map((tech) => (
-                <span 
-                  key={tech} 
-                  className="text-[10px] uppercase tracking-widest font-bold text-zinc-500"
-                >
-                  {tech}
-                </span>
-              ))}
+            {/* CONTEÚDO DO CARD */}
+            <div className="p-6 flex flex-col justify-between flex-1">
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <div className="p-2.5 rounded-lg transition-colors bg-zinc-200 dark:bg-zinc-800/50 text-purple-600 dark:text-purple-400">
+                    <Code2 size={20} />
+                  </div>
+                  
+                  <div className="flex gap-4">
+                    <a 
+                      href={projeto.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                      title="Ver código no GitHub"
+                    >
+                      <Github size={20} />
+                    </a>
+                    {projeto.deploy !== "#" && (
+                      <a 
+                        href={projeto.deploy} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                        title="Ver demonstração"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2 transition-colors text-zinc-900 dark:text-zinc-100 group-hover:text-purple-600 dark:group-hover:text-purple-400">
+                  {projeto.titulo}
+                </h3>
+                
+                <p className="text-sm leading-relaxed mb-6 text-zinc-600 dark:text-zinc-400 font-medium">
+                  {projeto.descricao}
+                </p>
+              </div>
+
+              {/* TECH TAGS */}
+              <div className="flex flex-wrap gap-2">
+                {projeto.tecnologias.map((tech) => (
+                  <span 
+                    key={tech} 
+                    className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 dark:text-zinc-500"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}

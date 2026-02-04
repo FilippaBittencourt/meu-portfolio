@@ -37,8 +37,8 @@ export default function About() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         <div className="max-w-sm space-y-6">
-          <h2 className="text-3xl font-bold text-zinc-100 tracking-tight">Me Conheça</h2>
-          <div className="space-y-4 text-zinc-400 leading-relaxed text-sm">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Me Conheça</h2>
+          <div className="space-y-4 text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
             <p>
               Oi! Me chamo Filippa, sou desenvolvedora web apaixonada por tecnologia e pelo mundo dos games.
               Desde os títulos clássicos como Super Mario Bros. até os mais modernos como Stardew Valley,
@@ -51,10 +51,18 @@ export default function About() {
           </div>
         </div>
 
-        <div className="p-6 bg-[#18181b] border border-zinc-800 rounded-3xl hover:border-purple-500/40 transition-all duration-500 w-full max-w-[400px] md:justify-self-end shadow-2xl">
+        <div className="p-6 rounded-3xl transition-all duration-500 w-full max-w-[400px] md:justify-self-end shadow-2xl border
+
+          bg-zinc-100 border-zinc-200
+          hover:border-purple-500/40
+
+          dark:bg-zinc-900 dark:border-zinc-800 
+          dark:hover:border-purple-500/40">
+
           <div className="flex items-center gap-6">
             
-            <div className="w-32 h-32 rounded-full bg-zinc-800 overflow-hidden flex-shrink-0 border-4 border-zinc-800 shadow-inner relative">
+            <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-2 relative shadow-inner
+            bg-zinc-200 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-800">
                <img 
                  src="/avatar.png"
                  alt="Avatar Lippa Estilo Stardew Vallley" 
@@ -63,21 +71,26 @@ export default function About() {
             </div>
 
             <div className="flex flex-col gap-1">
-              <h3 className="text-2xl font-bold text-purple-400 tracking-tight">
+              <h3 className="text-2xl font-bold text-purple-500 dark:text-purple-400 tracking-tight">
                 Lippa
               </h3>
               
-              <div className="space-y-0.5 font-mono text-sm text-zinc-100">
-                <p><span className="text-purple-500 font-semibold not-italic">Classe:</span> Web Developer</p>
-                <p><span className="text-purple-500 font-semibold not-italic">Nível:</span> 22</p>
+              <div className="space-y-0.5 font-mono text-sm text-zinc-600 dark:text-zinc-100">
+                <p><span className="text-purple-600 dark:text-purple-500 font-semibold not-italic">Classe:</span> Web Developer</p>
+                <p><span className="text-purple-600 dark:text-purple-500 font-semibold not-italic">Nível:</span> 22</p>
                 
                 <div className="flex flex-col">
-                  <span className="text-purple-500 font-semibold not-italic">Habilidades:</span>
+                  <span className="text-purple-600 dark:text-purple-500 font-semibold not-italic">Habilidades:</span>
                   <div className="flex gap-2 items-center mt-1">
                     {skills.map((skill) => (
                       <div 
                         key={skill.name} 
-                        className="p-2 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-purple-500/50 transition-colors"
+                        className="p-2 rounded-lg transition-colors border
+                          bg-zinc-100 border-zinc-300
+
+                          dark:bg-zinc-900 dark:border-zinc-800
+
+                          hover:border-purple-500/50 dark:hover:border-purple-500/50"
                         title={skill.name}
                       >
                         <SkillIcon path={skill.icon.path} color={skill.color} name={skill.name} />

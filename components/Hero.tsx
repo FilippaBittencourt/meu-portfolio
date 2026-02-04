@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section className="relative flex flex-col items-start gap-4 text-left w-full">
       
-      <span className="text-zinc-400 text-lg md:text-xl font-bold tracking-tight">
+      <span className="text-zinc-900 dark:text-zinc-400 text-lg md:text-xl font-bold tracking-tight">
         Olá, Mundo! Eu sou a
       </span>
       
@@ -53,7 +53,7 @@ export default function Hero() {
         Filippa Bittencourt
       </h1>
 
-      <p className="max-w-[600px] text-lg md:text-xl text-zinc-400 mt-2 font-bold leading-relaxed h-8">
+      <p className="max-w-[600px] text-lg md:text-xl text-zinc-900 dark:text-zinc-400 mt-2 font-bold leading-relaxed h-8">
         E sou <span className="text-purple-500">
           {palavras[index].substring(0, subIndex)}
         </span>
@@ -78,7 +78,12 @@ export default function Hero() {
 
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-2 bg-transparent border-2 border-zinc-800 hover:border-purple-500 text-zinc-300 hover:text-purple-400 px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+          className="flex items-center gap-2 bg-transparent px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border-2
+          
+          border-zinc-300 text-zinc-600 hover:border-purple-600 hover:text-purple-600
+
+          dark:border-zinc-800 dark:text-zinc-300 dark:hover:border-purple-500 dark:hover:text-purple-400
+          "
         >
           <MessageSquare size={20} />
           Me Contate
@@ -97,7 +102,12 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="hidden md:block absolute right-0 top-0 w-48 h-48 lg:w-64 lg:h-64 overflow-hidden rounded-full border-4 border-zinc-900 shadow-2xl z-0">
+      <div className="hidden md:block absolute right-0 top-0 w-48 h-48 lg:w-64 lg:h-64 overflow-hidden rounded-full border-4 shadow-2xl z-0
+        border-zinc-200
+
+        dark:border-zinc-900
+
+        transition-colors duration-500">
         <Image 
           src="/profile.jpeg"
           alt="Foto de Filippa Bittencourt" 
